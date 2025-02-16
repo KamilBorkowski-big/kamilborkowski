@@ -1,41 +1,135 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wykorzystanie AI do współpracy z pracą mechanika samochodowego</title>
-    <link rel="stylesheet" href="style.css"> <!-- Połączenie z plikiem CSS -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strona główna - Projekty Kamila</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Podstawowe style strony */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    #banner {
+      background-color: #555;
+      height: 200px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #banner p {
+      color: #fff;
+      font-size: 24px;
+    }
+    .container {
+      display: flex;
+      padding: 20px;
+    }
+    .sidebar {
+      width: 25%;
+      padding: 10px;
+    }
+    .sidebar button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .content {
+      width: 75%;
+      padding: 10px;
+      border-left: 2px solid #ddd;
+      background-color: #fff;
+      min-height: 300px;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Wykorzystanie AI do współpracy z pracą mechanika samochodowego</h1>
-    </header>
-
-    <section>
-        <h2>Wstęp</h2>
-        <p>W pracy mechanika samochodowego sztuczna inteligencja (AI) zyskuje na znaczeniu w różnych dziedzinach. AI pomaga w diagnostyce, w zarządzaniu warsztatem i w automatyzacji wielu procesów, co poprawia efektywność oraz dokładność pracy.</p>
-    </section>
-
-    <section>
-        <h2>AI w diagnostyce</h2>
-        <img src="assets/1ai.jpg" alt="AI w diagnostyce" style="width: 80%; height: auto;" />
-        <p>Systemy AI mogą analizować dane z czujników w samochodach, pomagając w szybszej i dokładniejszej diagnozie usterek.</p>
-    </section>
-
-    <section>
-        <h2>AI w warsztacie</h2>
-        <img src="assets/2warsztat.jpg" alt="Warsztat samochodowy" style="width: 80%; height: auto;" />
-        <p>AI wspomaga zarządzanie warsztatem, zapewniając lepszą organizację pracy i optymalizację procesów naprawczych.</p>
-    </section>
-
-    <section>
-        <h2>Przyszłość AI w motoryzacji</h2>
-        <img src="assets/3mechanik.jpg" alt="Przyszłość AI w motoryzacji" style="width: 80%; height: auto;" />
-        <p>W przyszłości AI będzie coraz bardziej zaawansowane, pomagając mechanikom w codziennej pracy oraz umożliwiając rozwój nowych technologii, takich jak autonomiczne pojazdy.</p>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Prezentacja o AI w mechanice samochodowej</p>
-    </footer>
+  <header>
+    <!-- Baner – przygotujesz go sam przy użyciu dedykowanych narzędzi -->
+    <div id="banner">
+      <p>[Tutaj będzie Twój baner]</p>
+    </div>
+    <h1>Strona główna - Projekty Kamila</h1>
+  </header>
+  
+  <div class="container">
+    <div class="sidebar">
+      <button onclick="showContent('python')">Moje projekty w Pythonie</button>
+      <button onclick="showContent('html')">Moje projekty w HTML</button>
+      <button onclick="showContent('gry')">Moje gry</button>
+      <button onclick="showContent('android')">Moje projekty na Android</button>
+      <button onclick="showContent('podroz')">Wirtualna podróż</button>
+    </div>
+    <div class="content" id="contentFrame">
+      <p>Wybierz kategorię z menu po lewej, aby zobaczyć więcej informacji.</p>
+    </div>
+  </div>
+  
+  <footer>
+    <p>
+      <a href="#">Mapa strony</a> |
+      <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> |
+      <a href="https://github.com/" target="_blank">GitHub</a> |
+      <a href="https://imagecolorpicker.com/" target="_blank">ImageColorPicker</a> |
+      <a href="https://www.pexels.com/pl-pl/" target="_blank">Pexels</a> |
+      <a href="https://pl.wikipedia.org/" target="_blank">Wikipedia</a> |
+      <a href="https://chat.openai.com/" target="_blank">ChatGPT</a> 
+    </p>
+    <p>
+      <strong>Narzędzia do tworzenia banera:</strong> 
+      <a href="https://www.photopea.com/" target="_blank">Photopea</a>, 
+      <a href="https://www.canva.com/" target="_blank">Canva</a>, 
+      <a href="https://www.gimp.org/" target="_blank">GIMP</a>
+    </p>
+  </footer>
+  
+  <script>
+    function showContent(category) {
+      var content = document.getElementById('contentFrame');
+      switch(category) {
+        case 'python':
+          content.innerHTML = "<h2>Projekty w Pythonie</h2><p>Tutaj prezentuję projekty napisane w Pythonie, w tym automatyzację, analizę danych, skrypty i aplikacje webowe.</p>";
+          break;
+        case 'html':
+          content.innerHTML = "<h2>Projekty w HTML</h2><p>Przykłady stron internetowych, szablony i responsywne projekty stworzone przy użyciu HTML, CSS i JavaScript.</p>";
+          break;
+        case 'gry':
+          content.innerHTML = "<h2>Moje gry</h2><p>Tutaj znajdziesz moje projekty gier, zarówno przeglądarkowych, jak i mobilnych, wykonanych w różnych technologiach.</p>";
+          break;
+        case 'android':
+          content.innerHTML = "<h2>Projekty na Android</h2><p>Prezentacja aplikacji mobilnych tworzonych na platformę Android, przykłady interfejsów i funkcjonalności.</p>";
+          break;
+        case 'podroz':
+          content.innerHTML = "<h2>Wirtualna podróż</h2><p>Interaktywna podróż po najciekawszych miejscach, z wykorzystaniem map, zdjęć i opowieści, umożliwiająca odkrywanie nowych regionów.</p>";
+          break;
+        default:
+          content.innerHTML = "<p>Wybierz kategorię, aby zobaczyć więcej informacji.</p>";
+      }
+    }
+  </script>
 </body>
 </html>
