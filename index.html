@@ -1,88 +1,137 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moja Strona Główna</title>
-    <link rel="stylesheet" href="style.css"> <!-- Połączenie z plikiem CSS -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strona główna - Projekty Kamila</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Podstawowe style strony */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    #banner {
+      background-color: #555;
+      height: 200px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    #banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .container {
+      display: flex;
+      padding: 20px;
+    }
+    .sidebar {
+      width: 25%;
+      padding: 10px;
+    }
+    .sidebar button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .content {
+      width: 75%;
+      padding: 10px;
+      border-left: 2px solid #ddd;
+      background-color: #fff;
+      min-height: 300px;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div id="banner">
-            <img src="assets/ford gt-40 mk1.png" alt="Mój Baner" style="width:100%; height:auto;">
-        </div>
-    </header>
-
-    <main>
-        <div class="container">
-            <!-- Menu boczne -->
-            <nav class="sidebar">
-                <ul>
-                    <li><button onclick="openTab('projekty-python')">Moje projekty w Pythonie</button></li>
-                    <li><button onclick="openTab('projekty-html')">Moje projekty w HTML</button></li>
-                    <li><button onclick="openTab('gry')">Moje gry</button></li>
-                    <li><button onclick="openTab('android')">Moje projekty na Android</button></li>
-                    <li><button onclick="openTab('podroz')">Wirtualna podróż</button></li>
-                </ul>
-            </nav>
-
-            <!-- Główna zawartość strony -->
-            <section class="content">
-                <div id="projekty-python" class="tab-content">
-                    <h2>Moje projekty w Pythonie</h2>
-                    <p>Lista projektów w Pythonie...</p>
-                </div>
-
-                <div id="projekty-html" class="tab-content">
-                    <h2>Moje projekty w HTML</h2>
-                    <p>Lista projektów w HTML...</p>
-                    <button onclick="window.location.href='projekty-kamil/projekt-ai-w-mechanice-samochodowej/index.html'">
-                        Projekt AI w mechanice samochodowej
-                    </button>
-                </div>
-
-                <div id="gry" class="tab-content">
-                    <h2>Moje gry</h2>
-                    <p>Lista gier, które stworzyłem...</p>
-                </div>
-
-                <div id="android" class="tab-content">
-                    <h2>Moje projekty na Android</h2>
-                    <p>Lista aplikacji mobilnych...</p>
-                </div>
-
-                <div id="podroz" class="tab-content">
-                    <h2>Wirtualna podróż</h2>
-                    <p>Odkrywaj świat wirtualnie...</p>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Moja Strona</p>
-        <p><a href="mapa-strony.html">Mapa strony</a></p>
-        <p>Przydatne linki:</p>
-        <ul>
-            <li><a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a></li>
-            <li><a href="https://github.com/" target="_blank">GitHub</a></li>
-            <li><a href="https://imagecolorpicker.com/" target="_blank">Image Color Picker</a></li>
-            <li><a href="https://www.pexels.com/pl-pl/" target="_blank">Pexels - darmowe zdjęcia</a></li>
-            <li><a href="https://pl.wikipedia.org/" target="_blank">Wikipedia</a></li>
-            <li><a href="https://chat.openai.com/" target="_blank">ChatGPT</a></li>
-            <li><a href="https://www.canva.com/" target="_blank">Canva - darmowe narzędzie do banerów</a></li>
-        </ul>
-    </footer>
-
-    <script>
-        function openTab(tabName) {
-            var i, tabcontent;
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            document.getElementById(tabName).style.display = "block";
-        }
-    </script>
+  <header>
+    <!-- Baner -->
+    <div id="banner">
+      <img src="assets/baner%20ford%20gt-40%20mk1.png" alt="Baner Ford GT-40 Mk1">
+    </div>
+    <h1>Strona główna - Projekty Kamila</h1>
+  </header>
+  
+  <div class="container">
+    <div class="sidebar">
+      <button onclick="showContent('python')">Moje projekty w Pythonie</button>
+      <button onclick="showContent('html')">Moje projekty w HTML</button>
+      <button onclick="showContent('gry')">Moje gry</button>
+      <button onclick="showContent('android')">Moje projekty na Android</button>
+      <button onclick="showContent('podroz')">Wirtualna podróż</button>
+    </div>
+    <div class="content" id="contentFrame">
+      <p>Wybierz kategorię z menu po lewej, aby zobaczyć więcej informacji.</p>
+    </div>
+  </div>
+  
+  <footer>
+    <p>
+      <a href="#">Mapa strony</a> |
+      <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> |
+      <a href="https://github.com/" target="_blank">GitHub</a> |
+      <a href="https://imagecolorpicker.com/" target="_blank">ImageColorPicker</a> |
+      <a href="https://www.pexels.com/pl-pl/" target="_blank">Pexels</a> |
+      <a href="https://pl.wikipedia.org/" target="_blank">Wikipedia</a> |
+      <a href="https://chat.openai.com/" target="_blank">ChatGPT</a> 
+    </p>
+    <p>
+      <strong>Narzędzia do tworzenia banera:</strong> 
+      <a href="https://www.photopea.com/" target="_blank">Photopea</a>, 
+      <a href="https://www.canva.com/" target="_blank">Canva</a>, 
+      <a href="https://www.gimp.org/" target="_blank">GIMP</a>
+    </p>
+  </footer>
+  
+  <script>
+    function showContent(category) {
+      var content = document.getElementById('contentFrame');
+      switch(category) {
+        case 'python':
+          content.innerHTML = "<h2>Projekty w Pythonie</h2><p>Tutaj prezentuję projekty napisane w Pythonie, w tym automatyzację, analizę danych, skrypty i aplikacje webowe.</p>";
+          break;
+        case 'html':
+          content.innerHTML = "<h2>Projekty w HTML</h2><p>Przykłady stron internetowych, szablony i responsywne projekty stworzone przy użyciu HTML, CSS i JavaScript.</p>";
+          break;
+        case 'gry':
+          content.innerHTML = "<h2>Moje gry</h2><p>Tutaj znajdziesz moje projekty gier, zarówno przeglądarkowych, jak i mobilnych, wykonanych w różnych technologiach.</p>";
+          break;
+        case 'android':
+          content.innerHTML = "<h2>Projekty na Android</h2><p>Prezentacja aplikacji mobilnych tworzonych na platformę Android, przykłady interfejsów i funkcjonalności.</p>";
+          break;
+        case 'podroz':
+          content.innerHTML = "<h2>Wirtualna podróż</h2><p>Interaktywna podróż po najciekawszych miejscach, z wykorzystaniem map, zdjęć i opowieści, umożliwiająca odkrywanie nowych regionów.</p>";
+          break;
+        default:
+          content.innerHTML = "<p>Wybierz kategorię, aby zobaczyć więcej informacji.</p>";
+      }
+    }
+  </script>
 </body>
 </html>
