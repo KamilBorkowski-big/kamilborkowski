@@ -5,24 +5,162 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Strona główna - Projekty Kamila</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Globalne style */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    #banner {
+      background: url('assets/baner%20ford%20gt-40%20mk1.png') no-repeat center;
+      background-size: cover;
+      height: 200px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #banner p {
+      color: #fff;
+      font-size: 24px;
+      background: rgba(0,0,0,0.5);
+      padding: 10px;
+    }
+    .container {
+      display: flex;
+      padding: 20px;
+    }
+    .sidebar {
+      width: 25%;
+      padding: 10px;
+    }
+    /* Styl przycisków z obrazami jako tła */
+    .sidebar button {
+      width: 100%;
+      margin-bottom: 10px;
+      height: 60px;
+      border: none;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+      /* Dodaj padding z lewej, by zrobić miejsce na tekst */
+      padding-left: 10px;
+    }
+    .btn-python {
+      background-image: url('assets/moje%20projekty%20w%20pythonie-python.png');
+      background-color: #007BFF;
+      font-family: "Courier New", Courier, monospace;
+    }
+    .btn-html {
+      background-image: url('assets/moje%20projekty%20w%20html-html.png');
+      background-color: #28a745;
+      font-family: Verdana, Geneva, sans-serif;
+    }
+    .btn-gry {
+      background-image: url('assets/moje%20gry-game.png');
+      background-color: #dc3545;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+    }
+    .btn-android {
+      background-image: url('assets/moje%20projekty%20na%20androida-android.png');
+      background-color: #ffc107;
+      font-family: "Roboto", sans-serif;
+      color: black;
+    }
+    .btn-podroz {
+      background-image: url('assets/wirtualna%20podroz-escape.png');
+      background-color: #17a2b8;
+      font-family: "Georgia", serif;
+    }
+    .btn-ai {
+      background-image: url('assets/ai%20sztuczna%20inteligencja-ai.png');
+      background-color: #6f42c1;
+      font-family: "Impact", Charcoal, sans-serif;
+    }
+    .content {
+      width: 75%;
+      padding: 10px;
+      border-left: 2px solid #ddd;
+      background-color: #fff;
+      min-height: 300px;
+      position: relative;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    /* Media queries dla responsywności */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 10px;
+      }
+      .sidebar, .content {
+        width: 100%;
+        padding: 10px;
+        border: none;
+      }
+      #banner {
+        height: 150px;
+      }
+      .sidebar button {
+        font-size: 14px;
+        height: 50px;
+      }
+    }
+    @media (max-width: 480px) {
+      #banner p {
+        font-size: 18px;
+        padding: 8px;
+      }
+      header, footer {
+        padding: 15px;
+      }
+      .sidebar button {
+        font-size: 13px;
+        height: 45px;
+      }
+      .content {
+        padding: 8px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
-    <!-- Baner -->
     <div id="banner">
-      <img src="assets/baner%20ford%20gt-40%20mk1.png" alt="Baner Ford GT-40 Mk1">
+      <p>Projekty Kamila</p>
     </div>
     <h1>Strona główna - Projekty Kamila</h1>
   </header>
   
   <div class="container">
     <div class="sidebar">
-      <button onclick="showContent('python')">Moje projekty w Pythonie</button>
-      <button onclick="showContent('html')">Moje projekty w HTML</button>
-      <button onclick="showContent('gry')">Moje gry</button>
-      <button onclick="showContent('android')">Moje projekty na Android</button>
-      <button onclick="showContent('podroz')">Wirtualna podróż</button>
-      <button onclick="showContent('ai')">AI sztuczna inteligencja</button>
+      <button class="btn-python" onclick="showContent('python')">Projekty w Pythonie</button>
+      <button class="btn-html" onclick="showContent('html')">Projekty w HTML</button>
+      <button class="btn-gry" onclick="showContent('gry')">Moje gry</button>
+      <button class="btn-android" onclick="showContent('android')">Projekty na Androida</button>
+      <button class="btn-podroz" onclick="showContent('podroz')">Wirtualna podróż</button>
+      <button class="btn-ai" onclick="showContent('ai')">AI Sztuczna Inteligencja</button>
     </div>
     <div class="content" id="contentFrame">
       <p>Wybierz kategorię z menu po lewej, aby zobaczyć więcej informacji.</p>
@@ -37,36 +175,40 @@
       <a href="https://imagecolorpicker.com/" target="_blank">ImageColorPicker</a> |
       <a href="https://www.pexels.com/pl-pl/" target="_blank">Pexels</a> |
       <a href="https://pl.wikipedia.org/" target="_blank">Wikipedia</a> |
-      <a href="https://chat.openai.com/" target="_blank">ChatGPT</a>
-    </p>
-    <p>
-      <strong>Narzędzia do tworzenia banera: Photopea, Canva, GIMP</strong>
+      <a href="https://chat.openai.com/" target="_blank">ChatGPT</a> |
+      <a href="https://www.photopea.com/" target="_blank">Photopea</a> |
+      <a href="https://www.canva.com/" target="_blank">Canva</a> |
+      <a href="https://www.gimp.org/" target="_blank">GIMP</a>
     </p>
   </footer>
   
   <script>
     function showContent(category) {
       var content = document.getElementById('contentFrame');
+      content.innerHTML = ""; // Wyczyść zawartość
       switch(category) {
         case 'python':
-          content.innerHTML = "<h2>Projekty w Pythonie</h2><p>Tutaj prezentuję projekty napisane w Pythonie, w tym automatyzację, analizę danych, skrypty i aplikacje webowe.</p>";
+          content.innerHTML = "<h2>Projekty w Pythonie</h2><p>Prezentacja projektów w Pythonie: automatyzacja, analiza danych, skrypty i aplikacje webowe.</p>";
           break;
         case 'html':
-          content.innerHTML = "<h2>Projekty w HTML</h2><p>Przykłady stron internetowych, szablony i responsywne projekty stworzone przy użyciu HTML, CSS i JavaScript.</p>" +
-          "<div class='right-button'><button onclick=\"window.open('projekty%20kamil/projekt%20ai%20w%20mechanice%20samochodowej/index.html', '_blank')
-)\">projekt Kamil</button></div>";
+          content.innerHTML = "<h2>Projekty w HTML</h2><p>Przykłady stron internetowych, szablony i responsywne projekty stworzone przy użyciu HTML, CSS i JavaScript.</p>";
+          content.innerHTML += `<div style="margin-top: 20px;">
+            <button onclick="window.open('projekty-kamil/projekt-ai-w-mechanice-samochodowej/index.html', '_blank')">
+              Projekt Kamil (AI w mechanice)
+            </button>
+          </div>`;
           break;
         case 'gry':
-          content.innerHTML = "<h2>Moje gry</h2><p>Tutaj znajdziesz moje projekty gier, zarówno przeglądarkowych, jak i mobilnych, wykonanych w różnych technologiach.</p>";
+          content.innerHTML = "<h2>Moje gry</h2><p>Prezentacja gier przeglądarkowych i mobilnych, wykonanych w różnych technologiach.</p>";
           break;
         case 'android':
-          content.innerHTML = "<h2>Projekty na Android</h2><p>Prezentacja aplikacji mobilnych tworzonych na platformę Android, przykłady interfejsów i funkcjonalności.</p>";
+          content.innerHTML = "<h2>Projekty na Androida</h2><p>Prezentacja aplikacji mobilnych tworzonych na platformę Android, przykłady interfejsów i funkcjonalności.</p>";
           break;
         case 'podroz':
-          content.innerHTML = "<h2>Wirtualna podróż</h2><p>Interaktywna podróż po najciekawszych miejscach, z wykorzystaniem map, zdjęć i opowieści, umożliwiająca odkrywanie nowych regionów.</p>";
+          content.innerHTML = "<h2>Wirtualna podróż</h2><p>Interaktywna podróż po najciekawszych miejscach, z wykorzystaniem map, zdjęć i opowieści.</p>";
           break;
         case 'ai':
-          content.innerHTML = "<h2>AI sztuczna inteligencja</h2><p>Tutaj prezentuję projekty związane ze sztuczną inteligencją, uczeniem maszynowym i nowoczesnymi rozwiązaniami AI.</p>";
+          content.innerHTML = "<h2>AI Sztuczna Inteligencja</h2><p>Projekty związane ze sztuczną inteligencją i uczeniem maszynowym.</p>";
           break;
         default:
           content.innerHTML = "<p>Wybierz kategorię, aby zobaczyć więcej informacji.</p>";
