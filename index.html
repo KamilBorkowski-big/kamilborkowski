@@ -14,87 +14,92 @@
     }
     header {
       background-color: #333;
-      color: #fff;
-      padding: 20px;
+      padding: 0;
       text-align: center;
     }
+    /* Baner – wyświetlany tylko obraz */
     #banner {
       background: url('assets/baner%20ford%20gt-40%20mk1.png') no-repeat center;
       background-size: cover;
       height: 200px;
       margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
-    #banner p {
-      color: #fff;
-      font-size: 24px;
-      background: rgba(0,0,0,0.5);
-      padding: 10px;
-    }
+    /* Kontener główny */
     .container {
       display: flex;
       padding: 20px;
     }
+    /* Menu boczne */
     .sidebar {
       width: 25%;
       padding: 10px;
     }
-    /* Styl przycisków z obrazami jako tła */
+    /* Przyciski – pełne obrazy jako tło + overlay dla czytelności */
     .sidebar button {
+      position: relative;
       width: 100%;
       margin-bottom: 10px;
       height: 60px;
       border: none;
-      background-size: cover;
-      background-position: center;
       background-repeat: no-repeat;
-      color: white;
-      font-size: 16px;
+      background-position: center;
+      background-size: 100% 100%;
       cursor: pointer;
+      font-size: 16px;
+      overflow: hidden;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-      /* Dodaj padding z lewej, by zrobić miejsce na tekst */
-      padding-left: 10px;
     }
+    .sidebar button::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1;
+    }
+    .sidebar button span {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      color: #fff;
+    }
+    /* Tła przycisków – upewnij się, że nazwy plików odpowiadają tym w folderze assets */
     .btn-python {
-      background-image: url('assets/moje%20projekty%20w%20pythonie-python.png');
-      background-color: #007BFF;
+      background-image: url('assets/python.png');
       font-family: "Courier New", Courier, monospace;
     }
     .btn-html {
-      background-image: url('assets/moje%20projekty%20w%20html-html.png');
-      background-color: #28a745;
+      background-image: url('assets/html.png');
       font-family: Verdana, Geneva, sans-serif;
     }
     .btn-gry {
-      background-image: url('assets/moje%20gry-game.png');
-      background-color: #dc3545;
+      background-image: url('assets/game.png');
       font-family: "Comic Sans MS", cursive, sans-serif;
     }
     .btn-android {
-      background-image: url('assets/moje%20projekty%20na%20androida-android.png');
-      background-color: #ffc107;
+      background-image: url('assets/android.png');
       font-family: "Roboto", sans-serif;
-      color: black;
+      color: #333;
     }
     .btn-podroz {
-      background-image: url('assets/wirtualna%20podroz-escape.png');
-      background-color: #17a2b8;
-      font-family: "Georgia", serif;
+      background-image: url('assets/escape.png');
+      font-family: Georgia, serif;
     }
     .btn-ai {
-      background-image: url('assets/ai%20sztuczna%20inteligencja-ai.png');
-      background-color: #6f42c1;
-      font-family: "Impact", Charcoal, sans-serif;
+      background-image: url('assets/ai.png');
+      font-family: Impact, Charcoal, sans-serif;
     }
+    /* Treść główna */
     .content {
       width: 75%;
       padding: 10px;
       border-left: 2px solid #ddd;
       background-color: #fff;
       min-height: 300px;
-      position: relative;
     }
     footer {
       background-color: #333;
@@ -108,7 +113,7 @@
       text-decoration: none;
       margin: 0 5px;
     }
-    /* Media queries dla responsywności */
+    /* Media queries */
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
@@ -128,9 +133,8 @@
       }
     }
     @media (max-width: 480px) {
-      #banner p {
-        font-size: 18px;
-        padding: 8px;
+      #banner {
+        height: 120px;
       }
       header, footer {
         padding: 15px;
@@ -147,20 +151,17 @@
 </head>
 <body>
   <header>
-    <div id="banner">
-      <p>Projekty Kamila</p>
-    </div>
-    <h1>Strona główna - Projekty Kamila</h1>
+    <div id="banner"></div>
   </header>
   
   <div class="container">
     <div class="sidebar">
-      <button class="btn-python" onclick="showContent('python')">Projekty w Pythonie</button>
-      <button class="btn-html" onclick="showContent('html')">Projekty w HTML</button>
-      <button class="btn-gry" onclick="showContent('gry')">Moje gry</button>
-      <button class="btn-android" onclick="showContent('android')">Projekty na Androida</button>
-      <button class="btn-podroz" onclick="showContent('podroz')">Wirtualna podróż</button>
-      <button class="btn-ai" onclick="showContent('ai')">AI Sztuczna Inteligencja</button>
+      <button class="btn-python" onclick="showContent('python')"><span>Projekty w Pythonie</span></button>
+      <button class="btn-html" onclick="showContent('html')"><span>Projekty w HTML</span></button>
+      <button class="btn-gry" onclick="showContent('gry')"><span>Moje gry</span></button>
+      <button class="btn-android" onclick="showContent('android')"><span>Projekty na Androida</span></button>
+      <button class="btn-podroz" onclick="showContent('podroz')"><span>Wirtualna podróż</span></button>
+      <button class="btn-ai" onclick="showContent('ai')"><span>AI Sztuczna Inteligencja</span></button>
     </div>
     <div class="content" id="contentFrame">
       <p>Wybierz kategorię z menu po lewej, aby zobaczyć więcej informacji.</p>
@@ -188,27 +189,87 @@
       content.innerHTML = ""; // Wyczyść zawartość
       switch(category) {
         case 'python':
-          content.innerHTML = "<h2>Projekty w Pythonie</h2><p>Prezentacja projektów w Pythonie: automatyzacja, analiza danych, skrypty i aplikacje webowe.</p>";
+          content.innerHTML = `
+            <div style="
+              background: url('assets/pythonprawa.png') no-repeat center;
+              background-size: cover;
+              color: white;
+              padding: 20px;
+              min-height: 500px; /* ZWIĘKSZONO Z 300px DO 500px */
+            ">
+              <h2>Projekty w Pythonie</h2>
+              <p>Prezentacja projektów w Pythonie: automatyzacja, analiza danych, skrypty i aplikacje webowe.</p>
+            </div>`;
           break;
         case 'html':
-          content.innerHTML = "<h2>Projekty w HTML</h2><p>Przykłady stron internetowych, szablony i responsywne projekty stworzone przy użyciu HTML, CSS i JavaScript.</p>";
-          content.innerHTML += `<div style="margin-top: 20px;">
-            <button onclick="window.open('projekty-kamil/projekt-ai-w-mechanice-samochodowej/index.html', '_blank')">
-              Projekt Kamil (AI w mechanice)
-            </button>
-          </div>`;
+          content.innerHTML = `
+            <div style="
+              background: url('assets/htmlprawa.png') no-repeat center;
+              background-size: cover;
+              color: white;
+              padding: 20px;
+              min-height: 500px;
+            ">
+              <h2>Projekty w HTML</h2>
+              <p>Przykłady stron internetowych, szablony i responsywne projekty stworzone przy użyciu HTML, CSS i JavaScript.</p>
+              <div style="margin-top: 20px;">
+                <button onclick="window.open('projekty-kamil/projekt-ai-w-mechanice-samochodowej/index.html', '_blank')">
+                  Projekt Kamil (AI w mechanice)
+                </button>
+              </div>
+            </div>`;
           break;
         case 'gry':
-          content.innerHTML = "<h2>Moje gry</h2><p>Prezentacja gier przeglądarkowych i mobilnych, wykonanych w różnych technologiach.</p>";
+          content.innerHTML = `
+            <div style="
+              background: url('assets/gameprawa.png') no-repeat center;
+              background-size: cover;
+              color: white;
+              padding: 20px;
+              min-height: 500px;
+            ">
+              <h2>Moje gry</h2>
+              <p>Prezentacja gier przeglądarkowych i mobilnych, wykonanych w różnych technologiach.</p>
+            </div>`;
           break;
         case 'android':
-          content.innerHTML = "<h2>Projekty na Androida</h2><p>Prezentacja aplikacji mobilnych tworzonych na platformę Android, przykłady interfejsów i funkcjonalności.</p>";
+          content.innerHTML = `
+            <div style="
+              background: url('assets/androidprawa.png') no-repeat center;
+              background-size: cover;
+              color: white;
+              padding: 20px;
+              min-height: 500px;
+            ">
+              <h2>Projekty na Androida</h2>
+              <p>Prezentacja aplikacji mobilnych tworzonych na platformę Android, przykłady interfejsów i funkcjonalności.</p>
+            </div>`;
           break;
         case 'podroz':
-          content.innerHTML = "<h2>Wirtualna podróż</h2><p>Interaktywna podróż po najciekawszych miejscach, z wykorzystaniem map, zdjęć i opowieści.</p>";
+          content.innerHTML = `
+            <div style="
+              background: url('assets/escapeprawa.png') no-repeat center;
+              background-size: cover;
+              color: white;
+              padding: 20px;
+              min-height: 500px;
+            ">
+              <h2>Wirtualna podróż</h2>
+              <p>Interaktywna podróż po najciekawszych miejscach, z wykorzystaniem map, zdjęć i opowieści.</p>
+            </div>`;
           break;
         case 'ai':
-          content.innerHTML = "<h2>AI Sztuczna Inteligencja</h2><p>Projekty związane ze sztuczną inteligencją i uczeniem maszynowym.</p>";
+          content.innerHTML = `
+            <div style="
+              background: url('assets/aiprawa.png') no-repeat center;
+              background-size: cover;
+              color: white;
+              padding: 20px;
+              min-height: 500px;
+            ">
+              <h2>AI Sztuczna Inteligencja</h2>
+              <p>Projekty związane ze sztuczną inteligencją i uczeniem maszynowym.</p>
+            </div>`;
           break;
         default:
           content.innerHTML = "<p>Wybierz kategorię, aby zobaczyć więcej informacji.</p>";
