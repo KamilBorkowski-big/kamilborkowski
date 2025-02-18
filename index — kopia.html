@@ -10,7 +10,8 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #202020; /* Pozostawiony kolor tła całej strony */
+      /* Zmieniony główny kolor tła */
+      background: #202020;
     }
     header {
       background-color: #333;
@@ -29,16 +30,15 @@
     .container {
       display: flex;
       padding: 20px;
-      align-items: stretch; /* Zapewnia wyrównanie wysokości obu kolumn */
     }
 
     /* MENU BOCZNE */
     .sidebar {
-      width: 20%; /* zmniejszono z 25% */
+      width: 25%;
       padding: 10px;
     }
 
-    /* PRZYCISKI – TŁO CAŁY OBRAZ + OVERLAY */
+    /* PRZYCISKI – TŁO CAŁY OBRAZ + OVERLAY DLA CZYTELNOŚCI TEKSTU */
     .sidebar button {
       position: relative;
       width: 100%;
@@ -74,65 +74,76 @@
       padding: 0 10px;
     }
 
-    /* TŁA I KOLORY TEKSTU DLA PRZYCISKÓW */
+    /* TŁA I KOLORY TEKSTU DLA KAŻDEGO PRZYCISKU */
+    /* PYTHON */
     .btn-python {
       background-image: url('assets/python.png');
       font-family: "Courier New", Courier, monospace;
     }
     .btn-python span {
-      color: #ffcc00;
+      color: #ffcc00; /* Żółty */
     }
+
+    /* HTML */
     .btn-html {
       background-image: url('assets/html.png');
       font-family: Verdana, Geneva, sans-serif;
     }
     .btn-html span {
-      color: #00ff00;
+      color: #00ff00; /* Jasna zieleń */
     }
+
+    /* GRY */
     .btn-gry {
       background-image: url('assets/game.png');
       font-family: "Comic Sans MS", cursive, sans-serif;
     }
     .btn-gry span {
-      color: #ff9900;
+      color: #ff9900; /* Pomarańczowy */
     }
+
+    /* ANDROID */
     .btn-android {
       background-image: url('assets/android.png');
       font-family: "Roboto", sans-serif;
     }
     .btn-android span {
-      color: #9933ff;
+      color: #9933ff; /* Fiolet */
     }
+
+    /* WIRTUALNA PODRÓŻ */
     .btn-podroz {
       background-image: url('assets/escape.png');
       font-family: Georgia, serif;
     }
     .btn-podroz span {
-      color: #00cccc;
+      color: #00cccc; /* Turkus */
     }
+
+    /* AI */
     .btn-ai {
       background-image: url('assets/ai.png');
       font-family: Impact, Charcoal, sans-serif;
     }
     .btn-ai span {
-      color: #ffcc00;
+      color: #ffcc00; /* Złoty */
     }
+
+    /* VIBY */
     .btn-viby {
       background-image: url('assets/viby.png');
       font-family: "Arial Black", Gadget, sans-serif;
     }
     .btn-viby span {
-      color: #39FF14;
+      color: #39FF14; /* Neonowy zielony */
     }
 
     /* TREŚĆ GŁÓWNA */
     .content {
-      width: 80%; /* zwiększono z 75% */
+      width: 75%;
       padding: 10px;
-      /* Usunięto border-left, aby nie było białego paska */
-      background: url('assets/background.png') no-repeat center center;
-      background-size: cover;
-      color: white;
+      border-left: 2px solid #ddd;
+      background-color: #fff;
       min-height: 300px;
     }
 
@@ -225,7 +236,6 @@
     function showContent(category) {
       const content = document.getElementById('contentFrame');
       content.innerHTML = ""; // Wyczyść zawartość
-
       switch(category) {
         case 'python':
           content.innerHTML = `
