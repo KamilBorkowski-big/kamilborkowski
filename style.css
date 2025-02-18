@@ -1,79 +1,182 @@
-/* style.css */
-
-/* Podstawowe style strony */
+/* GLOBALNE STYLE */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f4f4f4;
+  background: #202020;
 }
 
 header {
   background-color: #333;
-  color: #fff;
-  padding: 20px;
+  padding: 0;
   text-align: center;
 }
 
+/* Baner – obraz */
 #banner {
-  background-color: #555;
+  background: url('assets/banerfordgt40mk1.png') no-repeat center;
+  background-size: cover;
   height: 200px;
   margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
 }
 
-#banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
+/* Kontener główny */
 .container {
   display: flex;
   padding: 20px;
+  align-items: stretch;
 }
 
+/* Menu boczne */
 .sidebar {
-  width: 25%;
+  width: 20%;
   padding: 10px;
 }
 
 .sidebar button {
-  display: block;
   width: 100%;
+  height: 60px;
   margin-bottom: 10px;
-  padding: 10px;
-  font-size: 16px;
+  border: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   cursor: pointer;
-}
-
-.content {
-  width: 75%;
-  padding: 10px;
-  border-left: 2px solid #ddd;
-  background-color: #fff;
-  min-height: 300px;
+  font-size: 16px;
   position: relative;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
-.content .right-button {
+.sidebar button::before {
+  content: "";
   position: absolute;
-  top: 10px;
-  right: 10px;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
 }
 
+.sidebar button span {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 0 10px;
+}
+
+/* Style przycisków z unikalnymi tłami i kolorami */
+.btn-python {
+  background-image: url('assets/python.png');
+  font-family: "Courier New", Courier, monospace;
+}
+.btn-python span { color: #ffcc00; }
+
+.btn-html {
+  background-image: url('assets/html.png');
+  font-family: Verdana, Geneva, sans-serif;
+}
+.btn-html span { color: #00ff00; }
+
+.btn-gry {
+  background-image: url('assets/game.png');
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+.btn-gry span { color: #ff9900; }
+
+.btn-android {
+  background-image: url('assets/android.png');
+  font-family: "Roboto", sans-serif;
+}
+.btn-android span { color: #9933ff; }
+
+.btn-podroz {
+  background-image: url('assets/escape.png');
+  font-family: Georgia, serif;
+}
+.btn-podroz span { color: #00cccc; }
+
+.btn-ai {
+  background-image: url('assets/ai.png');
+  font-family: Impact, Charcoal, sans-serif;
+}
+.btn-ai span { color: #ffcc00; }
+
+.btn-viby {
+  background-image: url('assets/viby.png');
+  font-family: "Arial Black", Gadget, sans-serif;
+}
+.btn-viby span { color: #39FF14; }
+
+/* Sekcja treści */
+.content {
+  width: 80%;
+  padding: 10px;
+  border-left: none;
+  background: url('assets/background.png') no-repeat center center;
+  background-size: cover;
+  color: white;
+  min-height: 300px;
+}
+
+.intro-text {
+  font-family: cursive;
+  color: #ff1493;
+}
+
+/* Klasa do wczytywanych sekcji treści */
+.content-section {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 20px;
+  min-height: 400px;
+}
+
+/* Stopka */
 footer {
   background-color: #333;
-  color: #fff;
   text-align: center;
   padding: 10px;
   margin-top: 20px;
 }
 
 footer a {
-  color: #fff;
   text-decoration: none;
   margin: 0 5px;
+}
+
+/* Kolory linków stopki */
+footer a.link-mapa         { color: #ffcc00; }
+footer a.link-vscode       { color: #00ff00; }
+footer a.link-github       { color: #ff9900; }
+footer a.link-imagecolorpicker { color: #9933ff; }
+footer a.link-pexels       { color: #00cccc; }
+footer a.link-wikipedia    { color: #ffcc00; }
+footer a.link-chatgpt      { color: #39FF14; }
+footer a.link-photopea     { color: #ff9900; }
+footer a.link-canva        { color: #9933ff; }
+footer a.link-gimp         { color: #00cccc; }
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+  .sidebar, .content {
+    width: 100%;
+    padding: 10px;
+    border: none;
+  }
+  #banner { height: 150px; }
+  .sidebar button { font-size: 14px; height: 50px; }
+}
+
+@media (max-width: 480px) {
+  #banner { height: 120px; }
+  header, footer { padding: 15px; }
+  .sidebar button { font-size: 13px; height: 45px; }
+  .content { padding: 8px; }
 }

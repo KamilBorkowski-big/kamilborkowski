@@ -4,174 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Strona główna - Projekty Kamila</title>
+  <!-- Odwołanie do zewnętrznego pliku CSS -->
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* GLOBALNE STYLE */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #202020;
-    }
-    header {
-      background-color: #333;
-      padding: 0;
-      text-align: center;
-    }
-    /* Baner – obraz */
-    #banner {
-      background: url('assets/banerfordgt40mk1.png') no-repeat center;
-      background-size: cover;
-      height: 200px;
-      margin-bottom: 10px;
-    }
-    /* Kontener główny */
-    .container {
-      display: flex;
-      padding: 20px;
-      align-items: stretch;
-    }
-    /* Menu boczne */
-    .sidebar {
-      width: 20%;
-      padding: 10px;
-    }
-    .sidebar button {
-      position: relative;
-      width: 100%;
-      margin-bottom: 10px;
-      height: 60px;
-      border: none;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 100% 100%;
-      cursor: pointer;
-      font-size: 16px;
-      overflow: hidden;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-    }
-    .sidebar button::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.3);
-      z-index: 1;
-    }
-    .sidebar button span {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      padding: 0 10px;
-    }
-    /* Style przycisków z unikalnymi tłami i kolorami */
-    .btn-python {
-      background-image: url('assets/python.png');
-      font-family: "Courier New", Courier, monospace;
-    }
-    .btn-python span { color: #ffcc00; }
-    
-    .btn-html {
-      background-image: url('assets/html.png');
-      font-family: Verdana, Geneva, sans-serif;
-    }
-    .btn-html span { color: #00ff00; }
-    
-    .btn-gry {
-      background-image: url('assets/game.png');
-      font-family: "Comic Sans MS", cursive, sans-serif;
-    }
-    .btn-gry span { color: #ff9900; }
-    
-    .btn-android {
-      background-image: url('assets/android.png');
-      font-family: "Roboto", sans-serif;
-    }
-    .btn-android span { color: #9933ff; }
-    
-    .btn-podroz {
-      background-image: url('assets/escape.png');
-      font-family: Georgia, serif;
-    }
-    .btn-podroz span { color: #00cccc; }
-    
-    .btn-ai {
-      background-image: url('assets/ai.png');
-      font-family: Impact, Charcoal, sans-serif;
-    }
-    .btn-ai span { color: #ffcc00; }
-    
-    .btn-viby {
-      background-image: url('assets/viby.png');
-      font-family: "Arial Black", Gadget, sans-serif;
-    }
-    .btn-viby span { color: #39FF14; }
-    
-    /* Sekcja treści */
-    .content {
-      width: 80%;
-      padding: 10px;
-      border-left: none;
-      background: url('assets/background.png') no-repeat center center;
-      background-size: cover;
-      color: white;
-      min-height: 300px;
-    }
-    /* Wspólna klasa dla tła w sekcji treści */
-    .content-section {
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      padding: 20px;
-      min-height: 400px;
-    }
-    /* Stopka */
-    footer {
-      background-color: #333;
-      text-align: center;
-      padding: 10px;
-      margin-top: 20px;
-    }
-    footer a {
-      text-decoration: none;
-      margin: 0 5px;
-    }
-    /* Kolory linków stopki */
-    footer a.link-mapa         { color: #ffcc00; }
-    footer a.link-vscode       { color: #00ff00; }
-    footer a.link-github       { color: #ff9900; }
-    footer a.link-imagecolorpicker { color: #9933ff; }
-    footer a.link-pexels       { color: #00cccc; }
-    footer a.link-wikipedia    { color: #ffcc00; }
-    footer a.link-chatgpt      { color: #39FF14; }
-    footer a.link-photopea     { color: #ff9900; }
-    footer a.link-canva        { color: #9933ff; }
-    footer a.link-gimp         { color: #00cccc; }
-    
-    /* MEDIA QUERIES */
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        padding: 10px;
-      }
-      .sidebar, .content {
-        width: 100%;
-        padding: 10px;
-        border: none;
-      }
-      #banner { height: 150px; }
-      .sidebar button { font-size: 14px; height: 50px; }
-    }
-    @media (max-width: 480px) {
-      #banner { height: 120px; }
-      header, footer { padding: 15px; }
-      .sidebar button { font-size: 13px; height: 45px; }
-      .content { padding: 8px; }
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -179,7 +13,7 @@
   </header>
   
   <div class="container">
-    <div class="sidebar">
+    <aside class="sidebar">
       <button class="btn-python" onclick="showContent('python')"><span>Projekty w Pythonie</span></button>
       <button class="btn-html" onclick="showContent('html')"><span>Projekty w HTML</span></button>
       <button class="btn-gry" onclick="showContent('gry')"><span>Moje gry</span></button>
@@ -187,12 +21,12 @@
       <button class="btn-podroz" onclick="showContent('podroz')"><span>Wirtualna podróż</span></button>
       <button class="btn-ai" onclick="showContent('ai')"><span>AI Sztuczna Inteligencja</span></button>
       <button class="btn-viby" onclick="showContent('viby')"><span>Czujesz te viby!?</span></button>
-    </div>
-    <div class="content" id="contentFrame">
-      <p style="font-family: cursive; color: #ff1493;">
+    </aside>
+    <main class="content" id="contentFrame">
+      <p class="intro-text">
         Wybierz kategorię z menu po lewej, aby zobaczyć więcej informacji.
       </p>
-    </div>
+    </main>
   </div>
   
   <footer>
@@ -210,69 +44,7 @@
     </p>
   </footer>
   
-  <script>
-    function showContent(category) {
-      const content = document.getElementById('contentFrame');
-      content.innerHTML = "";
-      switch(category) {
-        case 'python':
-          content.innerHTML = `
-            <div class="content-section" style="background-image: url('assets/pythonprawa.png'); color: #ffcc00;">
-              <h2>Projekty w Pythonie</h2>
-              <p>Prezentacja projektów w Pythonie: automatyzacja, analiza danych, skrypty i aplikacje webowe.</p>
-            </div>`;
-          break;
-        case 'html':
-          content.innerHTML = `
-            <div class="content-section" style="background-image: url('assets/htmlprawa.png'); color: #00ff00;">
-              <h2>Projekty w HTML</h2>
-              <p>Przykłady stron internetowych, szablony i responsywne projekty stworzone przy użyciu HTML, CSS i JavaScript.</p>
-              <div style="margin-top: 20px;">
-                <button onclick="window.open('projekty-kamil/projekt-ai-w-mechanice-samochodowej/index.html', '_blank')">
-                  Projekt Kamil (AI w mechanice)
-                </button>
-              </div>
-            </div>`;
-          break;
-        case 'gry':
-          content.innerHTML = `
-            <div class="content-section" style="background-image: url('assets/gameprawa.png'); color: #ff9900;">
-              <h2>Moje gry</h2>
-              <p>Prezentacja gier przeglądarkowych i mobilnych, wykonanych w różnych technologiach.</p>
-            </div>`;
-          break;
-        case 'android':
-          content.innerHTML = `
-            <div class="content-section" style="background-image: url('assets/androidprawa.png'); color: #9933ff;">
-              <h2>Projekty na Androida</h2>
-              <p>Prezentacja aplikacji mobilnych tworzonych na platformę Android, przykłady interfejsów i funkcjonalności.</p>
-            </div>`;
-          break;
-        case 'podroz':
-          content.innerHTML = `
-            <div class="content-section" style="background-image: url('assets/escapeprawa.png'); color: #00cccc;">
-              <h2>Wirtualna podróż</h2>
-              <p>Interaktywna podróż po najciekawszych miejscach, z wykorzystaniem map, zdjęć i opowieści.</p>
-            </div>`;
-          break;
-        case 'ai':
-          content.innerHTML = `
-            <div class="content-section" style="background-image: url('assets/aiprawa.png'); color: #ffcc00;">
-              <h2>AI Sztuczna Inteligencja</h2>
-              <p>Projekty związane ze sztuczną inteligencją i uczeniem maszynowym.</p>
-            </div>`;
-          break;
-        case 'viby':
-          content.innerHTML = `
-            <div class="content-section" style="background-image: url('assets/vibyprawa.png'); color: #39FF14;">
-              <h2>Czujesz te viby!?</h2>
-              <p>Interesuję się gamingiem: Forza, Fourunner, World of Tanks, Fortnite itp., a także samochodami wyścigowymi i ciężarówkami.</p>
-            </div>`;
-          break;
-        default:
-          content.innerHTML = `<p style='font-family: cursive; color: #ff1493;'>Wybierz kategorię, aby zobaczyć więcej informacji.</p>`;
-      }
-    }
-  </script>
+  <!-- Odwołanie do zewnętrznego pliku JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
