@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -10,7 +11,8 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #202020; /* Pozostawiony kolor tła całej strony */
+      /* Główne tło całej strony */
+      background: #202020;
     }
     header {
       background-color: #333;
@@ -34,7 +36,7 @@
 
     /* MENU BOCZNE */
     .sidebar {
-      width: 20%; /* zmniejszono z 25% */
+      width: 20%; /* Zmniejszono z 25% */
       padding: 10px;
     }
 
@@ -74,7 +76,7 @@
       padding: 0 10px;
     }
 
-    /* TŁA I KOLORY TEKSTU DLA PRZYCISKÓW */
+    /* TŁA I KOLORY TEKSTU DLA KAŻDEGO PRZYCISKU */
     .btn-python {
       background-image: url('assets/python.png');
       font-family: "Courier New", Courier, monospace;
@@ -127,9 +129,11 @@
 
     /* TREŚĆ GŁÓWNA */
     .content {
-      width: 80%; /* zwiększono z 75% */
+      width: 80%; /* Zwiększono z 75% */
       padding: 10px;
       /* Usunięto border-left, aby nie było białego paska */
+      border-left: none;
+      /* Ustawiono obraz tła i dopasowanie do całej sekcji */
       background: url('assets/background.png') no-repeat center center;
       background-size: cover;
       color: white;
@@ -225,7 +229,6 @@
     function showContent(category) {
       const content = document.getElementById('contentFrame');
       content.innerHTML = ""; // Wyczyść zawartość
-
       switch(category) {
         case 'python':
           content.innerHTML = `
