@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -11,7 +10,6 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      /* Główne tło całej strony */
       background: #202020;
     }
     header {
@@ -19,28 +17,24 @@
       padding: 0;
       text-align: center;
     }
-    /* Baner – wyświetlany tylko obraz */
+    /* Baner – obraz */
     #banner {
-      background: url('assets/baner%20ford%20gt-40%20mk1.png') no-repeat center;
+      background: url('assets/banerfordgt40mk1.png') no-repeat center;
       background-size: cover;
       height: 200px;
       margin-bottom: 10px;
     }
-
-    /* KONTENER GŁÓWNY */
+    /* Kontener główny */
     .container {
       display: flex;
       padding: 20px;
-      align-items: stretch; /* Zapewnia wyrównanie wysokości obu kolumn */
+      align-items: stretch;
     }
-
-    /* MENU BOCZNE */
+    /* Menu boczne */
     .sidebar {
-      width: 20%; /* Zmniejszono z 25% */
+      width: 20%;
       padding: 10px;
     }
-
-    /* PRZYCISKI – TŁO CAŁY OBRAZ + OVERLAY */
     .sidebar button {
       position: relative;
       width: 100%;
@@ -55,7 +49,6 @@
       overflow: hidden;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
     }
-    /* Overlay dla przycisków */
     .sidebar button::before {
       content: "";
       position: absolute;
@@ -63,7 +56,6 @@
       background: rgba(0, 0, 0, 0.3);
       z-index: 1;
     }
-    /* Tekst przycisków */
     .sidebar button span {
       position: relative;
       z-index: 2;
@@ -75,85 +67,90 @@
       text-align: center;
       padding: 0 10px;
     }
-
-    /* TŁA I KOLORY TEKSTU DLA KAŻDEGO PRZYCISKU */
+    /* Style przycisków z unikalnymi tłami i kolorami */
     .btn-python {
       background-image: url('assets/python.png');
       font-family: "Courier New", Courier, monospace;
     }
-    .btn-python span {
-      color: #ffcc00;
-    }
+    .btn-python span { color: #ffcc00; }
+    
     .btn-html {
       background-image: url('assets/html.png');
       font-family: Verdana, Geneva, sans-serif;
     }
-    .btn-html span {
-      color: #00ff00;
-    }
+    .btn-html span { color: #00ff00; }
+    
     .btn-gry {
       background-image: url('assets/game.png');
       font-family: "Comic Sans MS", cursive, sans-serif;
     }
-    .btn-gry span {
-      color: #ff9900;
-    }
+    .btn-gry span { color: #ff9900; }
+    
     .btn-android {
       background-image: url('assets/android.png');
       font-family: "Roboto", sans-serif;
     }
-    .btn-android span {
-      color: #9933ff;
-    }
+    .btn-android span { color: #9933ff; }
+    
     .btn-podroz {
       background-image: url('assets/escape.png');
       font-family: Georgia, serif;
     }
-    .btn-podroz span {
-      color: #00cccc;
-    }
+    .btn-podroz span { color: #00cccc; }
+    
     .btn-ai {
       background-image: url('assets/ai.png');
       font-family: Impact, Charcoal, sans-serif;
     }
-    .btn-ai span {
-      color: #ffcc00;
-    }
+    .btn-ai span { color: #ffcc00; }
+    
     .btn-viby {
       background-image: url('assets/viby.png');
       font-family: "Arial Black", Gadget, sans-serif;
     }
-    .btn-viby span {
-      color: #39FF14;
-    }
-
-    /* TREŚĆ GŁÓWNA */
+    .btn-viby span { color: #39FF14; }
+    
+    /* Sekcja treści */
     .content {
-      width: 80%; /* Zwiększono z 75% */
+      width: 80%;
       padding: 10px;
-      /* Usunięto border-left, aby nie było białego paska */
       border-left: none;
-      /* Ustawiono obraz tła i dopasowanie do całej sekcji */
       background: url('assets/background.png') no-repeat center center;
       background-size: cover;
       color: white;
       min-height: 300px;
     }
-
-    /* STOPKA */
+    /* Wspólna klasa dla tła w sekcji treści */
+    .content-section {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      padding: 20px;
+      min-height: 400px;
+    }
+    /* Stopka */
     footer {
       background-color: #333;
-      color: #fff;
       text-align: center;
       padding: 10px;
       margin-top: 20px;
     }
     footer a {
-      color: #fff;
       text-decoration: none;
       margin: 0 5px;
     }
-
+    /* Kolory linków stopki */
+    footer a.link-mapa         { color: #ffcc00; }
+    footer a.link-vscode       { color: #00ff00; }
+    footer a.link-github       { color: #ff9900; }
+    footer a.link-imagecolorpicker { color: #9933ff; }
+    footer a.link-pexels       { color: #00cccc; }
+    footer a.link-wikipedia    { color: #ffcc00; }
+    footer a.link-chatgpt      { color: #39FF14; }
+    footer a.link-photopea     { color: #ff9900; }
+    footer a.link-canva        { color: #9933ff; }
+    footer a.link-gimp         { color: #00cccc; }
+    
     /* MEDIA QUERIES */
     @media (max-width: 768px) {
       .container {
@@ -165,28 +162,14 @@
         padding: 10px;
         border: none;
       }
-      #banner {
-        height: 150px;
-      }
-      .sidebar button {
-        font-size: 14px;
-        height: 50px;
-      }
+      #banner { height: 150px; }
+      .sidebar button { font-size: 14px; height: 50px; }
     }
     @media (max-width: 480px) {
-      #banner {
-        height: 120px;
-      }
-      header, footer {
-        padding: 15px;
-      }
-      .sidebar button {
-        font-size: 13px;
-        height: 45px;
-      }
-      .content {
-        padding: 8px;
-      }
+      #banner { height: 120px; }
+      header, footer { padding: 15px; }
+      .sidebar button { font-size: 13px; height: 45px; }
+      .content { padding: 8px; }
     }
   </style>
 </head>
@@ -206,40 +189,42 @@
       <button class="btn-viby" onclick="showContent('viby')"><span>Czujesz te viby!?</span></button>
     </div>
     <div class="content" id="contentFrame">
-      <p>Wybierz kategorię z menu po lewej, aby zobaczyć więcej informacji.</p>
+      <p style="font-family: cursive; color: #ff1493;">
+        Wybierz kategorię z menu po lewej, aby zobaczyć więcej informacji.
+      </p>
     </div>
   </div>
   
   <footer>
     <p>
-      <a href="#">Mapa strony</a> |
-      <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> |
-      <a href="https://github.com/" target="_blank">GitHub</a> |
-      <a href="https://imagecolorpicker.com/" target="_blank">ImageColorPicker</a> |
-      <a href="https://www.pexels.com/pl-pl/" target="_blank">Pexels</a> |
-      <a href="https://pl.wikipedia.org/" target="_blank">Wikipedia</a> |
-      <a href="https://chat.openai.com/" target="_blank">ChatGPT</a> |
-      <a href="https://www.photopea.com/" target="_blank">Photopea</a> |
-      <a href="https://www.canva.com/" target="_blank">Canva</a> |
-      <a href="https://www.gimp.org/" target="_blank">GIMP</a>
+      <a href="#" class="link-mapa">Mapa strony</a> |
+      <a href="https://code.visualstudio.com/" target="_blank" class="link-vscode">Visual Studio Code</a> |
+      <a href="https://github.com/" target="_blank" class="link-github">GitHub</a> |
+      <a href="https://imagecolorpicker.com/" target="_blank" class="link-imagecolorpicker">ImageColorPicker</a> |
+      <a href="https://www.pexels.com/pl-pl/" target="_blank" class="link-pexels">Pexels</a> |
+      <a href="https://pl.wikipedia.org/" target="_blank" class="link-wikipedia">Wikipedia</a> |
+      <a href="https://chat.openai.com/" target="_blank" class="link-chatgpt">ChatGPT</a> |
+      <a href="https://www.photopea.com/" target="_blank" class="link-photopea">Photopea</a> |
+      <a href="https://www.canva.com/" target="_blank" class="link-canva">Canva</a> |
+      <a href="https://www.gimp.org/" target="_blank" class="link-gimp">GIMP</a>
     </p>
   </footer>
   
   <script>
     function showContent(category) {
       const content = document.getElementById('contentFrame');
-      content.innerHTML = ""; // Wyczyść zawartość
+      content.innerHTML = "";
       switch(category) {
         case 'python':
           content.innerHTML = `
-            <div style="background: url('assets/pythonprawa.png') no-repeat center; background-size: cover; color: white; padding: 20px; min-height: 400px;">
+            <div class="content-section" style="background-image: url('assets/pythonprawa.png'); color: #ffcc00;">
               <h2>Projekty w Pythonie</h2>
               <p>Prezentacja projektów w Pythonie: automatyzacja, analiza danych, skrypty i aplikacje webowe.</p>
             </div>`;
           break;
         case 'html':
           content.innerHTML = `
-            <div style="background: url('assets/htmlprawa.png') no-repeat center; background-size: cover; color: white; padding: 20px; min-height: 400px;">
+            <div class="content-section" style="background-image: url('assets/htmlprawa.png'); color: #00ff00;">
               <h2>Projekty w HTML</h2>
               <p>Przykłady stron internetowych, szablony i responsywne projekty stworzone przy użyciu HTML, CSS i JavaScript.</p>
               <div style="margin-top: 20px;">
@@ -251,41 +236,41 @@
           break;
         case 'gry':
           content.innerHTML = `
-            <div style="background: url('assets/gameprawa.png') no-repeat center; background-size: cover; color: white; padding: 20px; min-height: 400px;">
+            <div class="content-section" style="background-image: url('assets/gameprawa.png'); color: #ff9900;">
               <h2>Moje gry</h2>
               <p>Prezentacja gier przeglądarkowych i mobilnych, wykonanych w różnych technologiach.</p>
             </div>`;
           break;
         case 'android':
           content.innerHTML = `
-            <div style="background: url('assets/androidprawa.png') no-repeat center; background-size: cover; color: white; padding: 20px; min-height: 400px;">
+            <div class="content-section" style="background-image: url('assets/androidprawa.png'); color: #9933ff;">
               <h2>Projekty na Androida</h2>
               <p>Prezentacja aplikacji mobilnych tworzonych na platformę Android, przykłady interfejsów i funkcjonalności.</p>
             </div>`;
           break;
         case 'podroz':
           content.innerHTML = `
-            <div style="background: url('assets/escapeprawa.png') no-repeat center; background-size: cover; color: white; padding: 20px; min-height: 400px;">
+            <div class="content-section" style="background-image: url('assets/escapeprawa.png'); color: #00cccc;">
               <h2>Wirtualna podróż</h2>
               <p>Interaktywna podróż po najciekawszych miejscach, z wykorzystaniem map, zdjęć i opowieści.</p>
             </div>`;
           break;
         case 'ai':
           content.innerHTML = `
-            <div style="background: url('assets/aiprawa.png') no-repeat center; background-size: cover; color: white; padding: 20px; min-height: 400px;">
+            <div class="content-section" style="background-image: url('assets/aiprawa.png'); color: #ffcc00;">
               <h2>AI Sztuczna Inteligencja</h2>
               <p>Projekty związane ze sztuczną inteligencją i uczeniem maszynowym.</p>
             </div>`;
           break;
         case 'viby':
           content.innerHTML = `
-            <div style="background: url('assets/vibyprawa.png') no-repeat center; background-size: cover; color: white; padding: 20px; min-height: 400px;">
+            <div class="content-section" style="background-image: url('assets/vibyprawa.png'); color: #39FF14;">
               <h2>Czujesz te viby!?</h2>
               <p>Interesuję się gamingiem: Forza, Fourunner, World of Tanks, Fortnite itp., a także samochodami wyścigowymi i ciężarówkami.</p>
             </div>`;
           break;
         default:
-          content.innerHTML = "<p>Wybierz kategorię, aby zobaczyć więcej informacji.</p>";
+          content.innerHTML = `<p style='font-family: cursive; color: #ff1493;'>Wybierz kategorię, aby zobaczyć więcej informacji.</p>`;
       }
     }
   </script>
